@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Ariana Quispe Alarcón - Desarrolladora de Software & Analista de Sistemas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            cream: '#FCFDF8',
+                            card: '#FFFFFF',
+                            limeLight: '#F2F9E9',
+                            limeSoft: '#D9F2B4',
+                            limeAccent: '#84CC16',
+                            limeDeep: '#3F6212',
+                            sageBorder: '#E2EED6',
+                            ink: '#1E2923',
+                            muted: '#52635A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos base y variables de paleta pastel */
+        body {
+            background-color: #F6F9F0;
+            color: #1E2923;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Optimización estricta para impresión y guardado en PDF (@media print) */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
+
+            body {
+                background-color: #FFFFFF !important;
+                color: #1E2923 !important;
+                font-size: 10.5pt;
+                line-height: 1.4;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .cv-sheet {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .print-break-inside-avoid {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Asegurar que los colores de fondo pastel se impriman correctamente */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-6 px-4 sm:py-10 sm:px-6 lg:px-8">
+
+    <!-- ==================== BARRA SUPERIOR DE ACCIONES (OCULTA AL IMPRIMIR) ==================== -->
+    <div class="no-print max-w-4xl mx-auto mb-5 flex flex-wrap items-center justify-between gap-3 bg-white/90 backdrop-blur-md px-5 py-3 rounded-2xl border border-pastel-sageBorder shadow-sm">
+        <div class="flex items-center gap-2 text-sm text-pastel-muted">
+            <span class="w-2.5 h-2.5 rounded-full bg-pastel-limeAccent"></span>
+            <span>Currículum Vitae • Formato A4 Listo para PDF</span>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+            <button type="button" onclick="copyEmail()" id="copy-btn"
+                    class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-pastel-limeLight hover:bg-pastel-limeSoft text-pastel-limeDeep text-xs sm:text-sm font-semibold transition-colors">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span id="copy-text">Copiar Correo</span>
+            </button>
+
+            <button type="button" onclick="window.print()"
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pastel-limeDeep hover:bg-[#324e0e] text-white text-xs sm:text-sm font-semibold shadow-sm transition-all cursor-pointer">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>Imprimir / Guardar PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== HOJA PRINCIPAL DEL CURRÍCULUM VITAE ==================== -->
+    <main class="cv-sheet max-w-4xl mx-auto bg-pastel-cream rounded-3xl shadow-xl shadow-lime-950/5 border border-pastel-sageBorder overflow-hidden">
+
+        <!-- 1. ENCABEZADO CON AVATAR ILUSTRATIVO, NOMBRE Y CONTACTO -->
+        <header class="bg-gradient-to-br from-pastel-limeLight via-[#EAF6DA] to-pastel-limeSoft/60 px-6 py-8 sm:px-10 sm:py-10 border-b border-pastel-sageBorder">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                
+                <!-- Avatar Ilustrativo Femenino en SVG Pastel -->
+                <div class="relative shrink-0">
+                    <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white p-1.5 shadow-md border-2 border-pastel-limeSoft flex items-center justify-center overflow-hidden">
+                        <svg viewBox="0 0 120 120" class="w-full h-full rounded-2xl bg-[#F4FAEC]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avatar ilustrativo de Ariana Quispe Alarcón">
+                            <!-- Fondo decorativo suave -->
+                            <circle cx="60" cy="60" r="54" fill="#E6F5D0"/>
+                            <circle cx="95" cy="28" r="10" fill="#D2EEAA" opacity="0.7"/>
+                            <!-- Cabello posterior -->
+                            <path d="M32 54 C32 28, 88 28, 88 54 L92 96 C92 102, 28 102, 28 96 Z" fill="#2A362F"/>
+                            <!-- Cuello y hombros / blusa pastel -->
+                            <path d="M51 74 L69 74 L72 90 L48 90 Z" fill="#F3C6A5"/>
+                            <path d="M24 114 C26 94, 42 86, 60 86 C78 86, 94 94, 96 114 Z" fill="#65A30D"/>
+                            <path d="M47 87 L60 99 L73 87" fill="none" stroke="#ECFCCB" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Rostro -->
+                            <path d="M41 52 C41 37, 79 37, 79 52 C79 68, 71 79, 60 79 C49 79, 41 68, 41 52 Z" fill="#FAD2B4"/>
+                            <!-- Flequillo / Cabello frontal -->
+                            <path d="M39 50 C40 31, 80 31, 81 50 C75 41, 64 40, 56 44 C49 41, 43 44, 39 50 Z" fill="#2A362F"/>
+                            <!-- Ojos y expresión amable -->
+                            <circle cx="51" cy="55" r="2.3" fill="#1E2923"/>
+                            <circle cx="69" cy="55" r="2.3" fill="#1E2923"/>
+                            <path d="M47 50 Q51 48 55 50" fill="none" stroke="#2A362F" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M65 50 Q69 48 73 50" fill="none" stroke="#2A362F" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Rubor suave y sonrisa -->
+                            <ellipse cx="46" cy="60" rx="3.5" ry="2" fill="#F49E8E" opacity="0.55"/>
+                            <ellipse cx="74" cy="60" rx="3.5" ry="2" fill="#F49E8E" opacity="0.55"/>
+                            <path d="M54 64 Q60 69 66 64" fill="none" stroke="#B85D4E" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <!-- Insignia de iniciales -->
+                    <span class="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-lg bg-pastel-limeDeep text-white font-display font-bold text-xs shadow">
+                        AQ
+                    </span>
+                </div>
+
+                <!-- Información Principal y Datos de Contacto -->
+                <div class="flex-1 text-center sm:text-left">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-pastel-sageBorder text-pastel-limeDeep text-xs font-semibold mb-2">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-pastel-limeAccent"></i>
+                        Disponible para oportunidades TI
+                    </div>
+
+                    <h1 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-pastel-ink">
+                        Ariana Quispe Alarcón
+                    </h1>
+                    <p class="font-display text-base sm:text-lg font-semibold text-pastel-limeDeep mt-1">
+                        Desarrolladora de Software & Analista de Sistemas
+                    </p>
+
+                    <!-- Grid de Contacto -->
+                    <div class="mt-4 pt-4 border-t border-pastel-sageBorder/80 grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 text-xs sm:text-sm text-pastel-muted">
+                        <div class="flex items-center justify-center sm:justify-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-pastel-limeDeep shrink-0"></i>
+                            <span>Lima, Perú</span>
+                        </div>
+                        <a href="mailto:ariana.quispe.dev@gmail.com" class="flex items-center justify-center sm:justify-start gap-2 hover:text-pastel-limeDeep transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 text-pastel-limeDeep shrink-0"></i>
+                            <span id="email-value">ariana.quispe.dev@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/arianaalarcon333-collab" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center sm:justify-start gap-2 hover:text-pastel-limeDeep transition-colors">
+                            <i data-lucide="github" class="w-4 h-4 text-pastel-limeDeep shrink-0"></i>
+                            <span>github.com/arianaalarcon333-collab</span>
+                        </a>
+                        <a href="https://linkedin.com/in/ariana-quispe-alarcon" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center sm:justify-start gap-2 hover:text-pastel-limeDeep transition-colors">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-pastel-limeDeep shrink-0"></i>
+                            <span>linkedin.com/in/ariana-quispe-alarcon</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL EN DOS COLUMNAS RESPONSIVAS -->
+        <div class="p-6 sm:p-10 space-y-8">
+
+            <!-- 2. SECCIÓN: SOBRE MÍ -->
+            <section class="print-break-inside-avoid">
+                <div class="flex items-center gap-2.5 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-pastel-limeSoft text-pastel-limeDeep flex items-center justify-center">
+                        <i data-lucide="user-check" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-display text-lg sm:text-xl font-bold text-pastel-ink">Sobre mí</h2>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-pastel-sageBorder">
+                    <p class="text-sm sm:text-base text-pastel-muted leading-relaxed">
+                        Desarrolladora de Software y Analista de Sistemas enfocada en la creación de soluciones tecnológicas eficientes, escalables y centradas en el usuario. Cuento con experiencia práctica en el desarrollo de aplicaciones móviles nativas en <strong>Kotlin</strong>, plataformas web responsivas e integración de servicios en la nube. Me caracterizo por mi pensamiento analítico para el levantamiento de requerimientos, el diseño de bases de datos estructuradas y el compromiso constante con las buenas prácticas de ingeniería de software.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GRID ASIMÉTRICO: COLUMNA IZQUIERDA (HABILIDADES + FORMACIÓN) Y DERECHA (PROYECTOS) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                <!-- COLUMNA IZQUIERDA (5 cols en desktop) -->
+                <div class="lg:col-span-5 space-y-8">
+
+                    <!-- 3. SECCIÓN: HABILIDADES TÉCNICAS -->
+                    <section class="print-break-inside-avoid">
+                        <div class="flex items-center gap-2.5 mb-3">
+                            <div class="w-8 h-8 rounded-xl bg-pastel-limeSoft text-pastel-limeDeep flex items-center justify-center">
+                                <i data-lucide="cpu" class="w-4 h-4"></i>
+                            </div>
+                            <h2 class="font-display text-lg sm:text-xl font-bold text-pastel-ink">Habilidades Técnicas</h2>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-pastel-sageBorder space-y-5">
+                            <!-- Barras de dominio limpio -->
+                            <div class="space-y-3.5">
+                                <div>
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span>Kotlin & Android Studio</span>
+                                        <span class="text-pastel-limeDeep">90%</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-pastel-limeLight overflow-hidden">
+                                        <div class="h-full rounded-full bg-pastel-limeAccent" style="width: 90%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span>HTML5, CSS3 & JavaScript</span>
+                                        <span class="text-pastel-limeDeep">88%</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-pastel-limeLight overflow-hidden">
+                                        <div class="h-full rounded-full bg-pastel-limeAccent" style="width: 88%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span>Análisis de Sistemas & UML</span>
+                                        <span class="text-pastel-limeDeep">92%</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-pastel-limeLight overflow-hidden">
+                                        <div class="h-full rounded-full bg-pastel-limeAccent" style="width: 92%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span>REST APIs & Bases de Datos</span>
+                                        <span class="text-pastel-limeDeep">85%</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-pastel-limeLight overflow-hidden">
+                                        <div class="h-full rounded-full bg-pastel-limeAccent" style="width: 85%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span>Cloud Computing (AWS / GCP / Azure)</span>
+                                        <span class="text-pastel-limeDeep">78%</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-pastel-limeLight overflow-hidden">
+                                        <div class="h-full rounded-full bg-pastel-limeAccent" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Etiquetas / Tags complementarios -->
+                            <div class="pt-3 border-t border-pastel-sageBorder">
+                                <p class="text-xs font-semibold text-pastel-muted mb-2.5">Tecnologías & Herramientas</p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Kotlin</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Android Studio</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Room / SQLite</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">HTML / CSS / JS</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">REST APIs</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">AWS</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Google Cloud</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Azure</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">Git & GitHub</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-pastel-limeLight text-pastel-limeDeep text-xs font-medium border border-pastel-sageBorder">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. SECCIÓN: FORMACIÓN ACADÉMICA E IDIOMAS -->
+                    <section class="print-break-inside-avoid">
+                        <div class="flex items-center gap-2.5 mb-3">
+                            <div class="w-8 h-8 rounded-xl bg-pastel-limeSoft text-pastel-limeDeep flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            </div>
+                            <h2 class="font-display text-lg sm:text-xl font-bold text-pastel-ink">Formación & Idiomas</h2>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-pastel-sageBorder space-y-5">
+                            <!-- Educación -->
+                            <div class="relative pl-4 border-l-2 border-pastel-limeAccent">
+                                <span class="inline-block px-2 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold mb-1">
+                                    En curso / Egresada
+                                </span>
+                                <h3 class="font-display font-bold text-sm text-pastel-ink">
+                                    Diseño y Desarrollo de Software / Análisis de Sistemas
+                                </h3>
+                                <p class="text-xs text-pastel-muted mt-0.5">Lima, Perú</p>
+                                <p class="text-xs text-pastel-muted mt-1.5 leading-relaxed">
+                                    Enfoque en ingeniería de requerimientos, arquitectura móvil y web, bases de datos relacionales y despliegue en la nube.
+                                </p>
+                            </div>
+
+                            <!-- Idiomas -->
+                            <div class="pt-4 border-t border-pastel-sageBorder">
+                                <div class="flex items-center gap-1.5 text-xs font-bold text-pastel-ink mb-3">
+                                    <i data-lucide="languages" class="w-3.5 h-3.5 text-pastel-limeDeep"></i>
+                                    <span>Idiomas</span>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-pastel-limeLight/70 border border-pastel-sageBorder">
+                                        <span class="text-xs font-semibold text-pastel-ink">Español</span>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-pastel-limeSoft text-pastel-limeDeep text-[11px] font-bold">
+                                            Nativo
+                                        </span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-pastel-limeLight/70 border border-pastel-sageBorder">
+                                        <span class="text-xs font-semibold text-pastel-ink">Inglés</span>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-white text-pastel-limeDeep border border-pastel-sageBorder text-[11px] font-semibold">
+                                            En formación (Básico - Intermedio)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- COLUMNA DERECHA: PROYECTOS DESTACADOS (7 cols en desktop) -->
+                <div class="lg:col-span-7">
+                    <section>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-pastel-limeSoft text-pastel-limeDeep flex items-center justify-center">
+                                    <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+                                </div>
+                                <h2 class="font-display text-lg sm:text-xl font-bold text-pastel-ink">Proyectos Destacados</h2>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Proyecto 1: Veterinaria Patitas -->
+                            <article class="print-break-inside-avoid bg-white p-5 rounded-2xl border border-pastel-sageBorder hover:border-pastel-limeAccent transition-colors">
+                                <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase tracking-wider text-pastel-limeDeep bg-pastel-limeLight px-2.5 py-0.5 rounded-md">
+                                            Aplicación Móvil Android
+                                        </span>
+                                        <h3 class="font-display text-base sm:text-lg font-bold text-pastel-ink mt-1.5">
+                                            Veterinaria Patitas
+                                        </h3>
+                                    </div>
+                                    <span class="text-xs font-medium text-pastel-muted">Kotlin • Room</span>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-pastel-muted leading-relaxed mb-3">
+                                    Aplicación móvil nativa diseñada para la gestión integral de clínicas veterinarias. Permite el registro de mascotas, historial clínico, control de vacunación, programación de citas y almacenamiento local persistente con funcionamiento offline.
+                                </p>
+
+                                <ul class="text-xs text-pastel-muted space-y-1 mb-3.5 pl-4 list-disc marker:text-pastel-limeAccent">
+                                    <li>Persistencia de datos local estructurada mediante librería <strong>Room (SQLite)</strong> y arquitectura limpia.</li>
+                                    <li>Interfaz intuitiva en Android Studio con validación de formularios y búsqueda rápida de pacientes.</li>
+                                </ul>
+
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Kotlin</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Android Studio</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Room Database</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Material Design</span>
+                                </div>
+                            </article>
+
+                            <!-- Proyecto 2: RUTAS PERÚ -->
+                            <article class="print-break-inside-avoid bg-white p-5 rounded-2xl border border-pastel-sageBorder hover:border-pastel-limeAccent transition-colors">
+                                <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase tracking-wider text-pastel-limeDeep bg-pastel-limeLight px-2.5 py-0.5 rounded-md">
+                                            Plataforma Web de Transporte
+                                        </span>
+                                        <h3 class="font-display text-base sm:text-lg font-bold text-pastel-ink mt-1.5">
+                                            Sistema Web de Control de Pasajeros — RUTAS PERÚ
+                                        </h3>
+                                    </div>
+                                    <span class="text-xs font-medium text-pastel-muted">Web • REST API</span>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-pastel-muted leading-relaxed mb-3">
+                                    Sistema web orientado al monitoreo operativo y control de embarque de pasajeros para empresas de transporte interprovincial. Centraliza manifiestos de viaje, asignación de asientos, rutas y reportes diarios en tiempo real.
+                                </p>
+
+                                <ul class="text-xs text-pastel-muted space-y-1 mb-3.5 pl-4 list-disc marker:text-pastel-limeAccent">
+                                    <li>Automatización del registro de boletos y validación de capacidad por unidad vehicular.</li>
+                                    <li>Integración con servicios <strong>REST API</strong> para consulta instantánea de itinerarios y tarifas.</li>
+                                </ul>
+
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">HTML5 / CSS3</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">JavaScript</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">REST APIs</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Análisis de Sistemas</span>
+                                </div>
+                            </article>
+
+                            <!-- Proyecto 3: Sistema de Gestión de Citas Médicas -->
+                            <article class="print-break-inside-avoid bg-white p-5 rounded-2xl border border-pastel-sageBorder hover:border-pastel-limeAccent transition-colors">
+                                <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase tracking-wider text-pastel-limeDeep bg-pastel-limeLight px-2.5 py-0.5 rounded-md">
+                                            Sistema de Información
+                                        </span>
+                                        <h3 class="font-display text-base sm:text-lg font-bold text-pastel-ink mt-1.5">
+                                            Sistema de Gestión de Citas Médicas
+                                        </h3>
+                                    </div>
+                                    <span class="text-xs font-medium text-pastel-muted">Full-Stack • Cloud</span>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-pastel-muted leading-relaxed mb-3">
+                                    Solución integral para centros de salud enfocada en optimizar la reserva de consultas médicas, disponibilidad de especialistas por turno y administración de expedientes de pacientes, reduciendo tiempos de espera.
+                                </p>
+
+                                <ul class="text-xs text-pastel-muted space-y-1 mb-3.5 pl-4 list-disc marker:text-pastel-limeAccent">
+                                    <li>Modelado completo de procesos de negocio, casos de uso y base de datos normalizada.</li>
+                                    <li>Control de horarios médicos para evitar cruces de citas y mejorar la atención al paciente.</li>
+                                </ul>
+
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Análisis Funcional</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">JavaScript</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Base de Datos SQL</span>
+                                    <span class="px-2.5 py-0.5 rounded-md bg-pastel-limeLight text-pastel-limeDeep text-[11px] font-semibold">Cloud Computing</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA DISCRETO -->
+        <footer class="bg-pastel-limeLight/70 px-6 py-4 sm:px-10 border-t border-pastel-sageBorder flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-pastel-muted">
+            <span>Ariana Quispe Alarcón — Desarrolladora de Software & Analista de Sistemas</span>
+            <span>Lima, Perú • 2026</span>
+        </footer>
+
+    </main>
+
+    <!-- ==================== SCRIPTS DE INTERACCIÓN ==================== -->
+    <script>
+        // Renderizar iconos de Lucide
+        lucide.createIcons();
+
+        // Función compatible para copiar correo electrónico al portapapeles
+        function copyEmail() {
+            const emailText = document.getElementById('email-value').textContent.trim();
+            const copyTextEl = document.getElementById('copy-text');
+
+            const tempInput = document.createElement('input');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            copyTextEl.textContent = '¡Correo copiado!';
+            setTimeout(() => {
+                copyTextEl.textContent = 'Copiar Correo';
+            }, 2200);
+        }
+    </script>
+</body>
+</html>
